@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="../static/css/bootstrap.css"/>
+<script src="../static/js/jquery-3.3.1.js"></script>
+<script src="../static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.js"></script>
+<meta charset="UTF-8">
+<title>个人主页</title>
+<style>
+    .mohu {
+        filter: blur(4px);
+        cursor: pointer;
+    }
+
+    .wenzi {
+        position: absolute;
+        top: 11%;
+        left: 14%;
+    }
+
+    .xiangji {
+        position: absolute;
+        top: 7%;
+        left: 18%;
+    }
+</style>
+<div th:replace="head::head"></div>
+<div class="container col-4">
+    <!--更换头像-->
+    <div class="m-5">
+        <img id="img" class="rounded-circle mr-4 " width="120" height="120" src="../static/img/head/1.jpg"
+             th:src="@{${holder.headUrl}}">
+            <img class=" d-inline xiangji " src="../static/img/icon/相机.svg" width="20" height="20">
+            <span class="wenzi" style="color: white">更改头像</span>
+        <input type="file" id="upload" class="d-none"/>
+    </div>
+    <!--更换昵称-->
+    <div class="input-group m-4">
+        <div class="input-group-prepend col-3">
+            <span class="navbar-text">昵称：</span>
+        </div>
+        <input type="text" class=" form-control col-6">
+        <div class="input-group-append col-3">
+            <button class="btn btn-outline-success rounded" type="button">确定</button>
+        </div>
+    </div>
+    <hr>
+    <!--更换邮箱-->
+    <div class="input-group m-4">
+        <div class="input-group-prepend col-3">
+            <span class="navbar-text">邮箱：</span>
+        </div>
+        <input type="text" class="form-control col-6">
+        <div class="input-group-append col-3">
+            <button class="btn btn-outline-success rounded" type="button">确定</button>
+        </div>
+    </div>
+    <hr>
+    <!--更换密码-->
+    <div class="input-group m-4">
+        <div class="input-group-prepend col-3">
+            <span class="navbar-text">旧密码：</span>
+        </div>
+        <input type="text" class="form-control col-6">
+
+    </div>
+    <div class="input-group m-4">
+        <div class="input-group-prepend col-3">
+            <span class="navbar-text">新密码：</span>
+        </div>
+        <input type="text" class="form-control col-6">
+
+    </div>
+    <div class="justify-content-center d-flex ">
+        <button class="ml-5 btn btn-primary btn-block col-6">确定</button>
+    </div>
+    <hr>
+</div>
+</html>
+<script>
+    $("#img").hover(function () {
+        $("#img").addClass("mohu")
+
+    }, function () {
+        $("#img").removeClass("mohu")
+    })
+    $("#img").click(function () {
+        $("#upload").click()
+    })
+</script>
